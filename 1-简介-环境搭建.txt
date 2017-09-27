@@ -22,3 +22,89 @@
 5，类之间的关系
 	比如继承，一种有向关联，子类依赖父类。
 
+6，JRE本质就是JVM，Java运行环境。
+
+7，检查安装
+	java -version
+	
+	环境变量:windows下面，path;unix下面，echo $PATH
+	
+	javac -version 查看编译器的版本
+	
+	javac <options> <source files> 编译
+	
+	javac -g:none Hello.java  不生成调试信息
+	
+	classpath:路径列表，当需要加载某个类时，Java就会搜索这些列表。Java依靠这种机制，从而在编译和执行的时候。实现类的动态加载。
+	
+	当然，也可以在编译文件的时候指定classpath
+	javac -classpath c:\junit\junit.jar StudentTest.java 
+	java -cp .;c:junit\junit.jar  junit.awtui.TestRunner StudentTest  注：cp是classpath的缩写，这里指定了多个路径，包括当前路径和junit所在的路径
+	
+	
+8，创建Student对象
+	java虚拟机执行new操作符的时候，java虚拟机分配一块内存来存储这个对象，虚拟机根据类的定义来决定内存分配的大小。
+	
+	Student s = new Student("Jane Doe");
+	
+	当虚拟机执行该语句的时候，首先执行赋值语句右边的代码，在内存创建一个Student对象，虚拟机记住它放置该对象的实际内存地址，然后虚拟机把地址赋值给左边的引用。
+	请记住Java虚拟机总是先执行某个赋值语句右边的代码，Java虚拟机计算出等号右边表达式的值，然后将结果赋值给左边。
+	
+9，一些概念
+	变量
+	变量的初始化倾向于尽可能在成员变量定义时初始化，在同一个地方完成声明和初始化，可以使代码变得更简单些。
+	构造函数
+	默认构造函数表明Java将构造函数视为类的必要元素，Java需要构造函数来初始化一个类，即使构造函数中没有任何初始化代码。如果你没有提供构造函数，Java编译器会替你生成一个。
+	
+10，重构
+	保证系统中没有重复代码；
+	保证代码是干净的，并且富有表现力，可以清晰地体现程序员的意图；
+	清楚不必要的局部变量；
+	代码中嵌入的字符串要有清晰的意义；
+	
+11，final关键字
+	public class FinalTest {
+		public static void main(String[] args) {
+			
+			final String testfinal = "a final variable";
+			
+			// testfinal = "aa";  //注意这里不可以再这样赋值
+			//final关键字表面这个字符串引用是不可修改的
+			
+			System.out.println( testfinal);
+			
+		}
+	}
+
+12，this关键字
+	关键字this指向当前对象的引用，当前对象是指正在运行的代码所属的对象。
+	
+13，private
+	不要把变量暴露给其他对象；
+	成员变量私有化的另一个好处在于可以强制加强面向对象和封装的概念：一个面向对象的系统更关注行为，而不是数据。您应该通过发送消息来获取数据，也应该封装实现细节。
+	
+14，命名规范
+	不同的团队可能有不一样的规定，主要是类名/接口的命名要求，变量的命名要求，常量的命名要求。
+	
+15，行为建模
+	面向对象是行为建模，行为通过对象发送消息产生作用：让对象做某件事情，或者从对象获取数据。
+	
+16，基本数据类型 int
+	-2 147 483 648 到 2 147 483 647 
+	
+17，类常量
+	将局部变量声明为final是一个好的方法，来提醒其他程序员，我不打算让你修改这个变量的值。
+	用类常量来替换字符串或数字。
+	如： static final int SQUARES_PER_SIDE = 8;
+	
+18,消除不赞成的警告
+	javac -classpath c:\junit\junit.jar -Xlint:deprecation *.java 可以在编译的时候给出不赞成的警告
+	
+19，注释 // /**/ 
+	javadoc注释/** */
+	javadoc -package -classpath c:\source;c:junit\junit.jar StudentInfo
+	
+20，Date & Calendar
+	
+	
+	
